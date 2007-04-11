@@ -41,6 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/hardinfo
-%dir %{_libdir}/hardinfo
-%{_libdir}/hardinfo/*
+%dir %{_prefix}/lib/hardinfo
+%{_prefix}/lib/hardinfo/*
 %{_datadir}/*
