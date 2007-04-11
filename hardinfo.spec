@@ -1,3 +1,5 @@
+# TODO
+# - fix amd64 build (*MUST USE* %{_libdir} for arch dependant files)
 Summary:	Hardinfo - benchmark tool
 Summary(pl):	Hardinfo
 Name:		hardinfo
