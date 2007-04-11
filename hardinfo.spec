@@ -10,7 +10,8 @@ Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
 URL:		http://hardinfo.berlios.de/web/HomePage
 BuildRequires:	gtk+2-devel >= 2.6.0
 BuildRequires:	libsoup-devel >= 2.2.7
-Requires:	/sbin/lspci
+BuildRequires:	pciutils
+Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
