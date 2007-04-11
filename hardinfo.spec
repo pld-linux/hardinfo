@@ -1,7 +1,3 @@
-#
-# Conditional build:
-#
-
 Summary:	Hardinfo - benchmark tool
 Summary(pl):	Hardinfo - 
 Name:		hardinfo
@@ -45,6 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/hardinfo
+%dir %{_libdir}/hardinfo
 %{_libdir}/hardinfo/*
 %{_datadir}/*
 #%{_examplesdir}/%{name}-%{version}
