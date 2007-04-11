@@ -4,7 +4,7 @@ Name:		hardinfo
 Version:	0.4.2.1
 Release:	0.1
 License:	GPL
-Group:		Applications
+Group:		X11/Applications
 Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
 # Source0-md5:	6eaa923cc2051d6ab1bb7a7350c27699
 URL:		http://hardinfo.berlios.de/web/HomePage
