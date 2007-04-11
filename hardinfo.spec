@@ -1,5 +1,8 @@
 # TODO
 # - fix amd64 build (*MUST USE* %{_libdir} for arch dependant files)
+#   to do that  fix Makefile so that it will either install to /usr/lib if 32bit arch
+#   or to /usr/lib64 if 64bit arch - we could then safely use %{_libdir} macro
+
 Summary:	Hardinfo - benchmark tool
 Summary(pl):	Hardinfo
 Name:		hardinfo
