@@ -9,8 +9,8 @@ Version:	0.4.2.1
 Release:	0.1
 License:	GPL
 Group:		Applications
-Source0:	http://freshmeat.net/redir/hardinfo/41063/url_bz2/%{name}-%{version}.tar.bz2
-# Source0-md5:	94eb744c32be1279983a77b6718ef0f8
+Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
+# Source0-md5:	6eaa923cc2051d6ab1bb7a7350c27699
 #Source1:	-
 # Source1-md5:	-
 #Patch0:		%{name}-DESTDIR.patch
