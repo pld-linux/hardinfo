@@ -1,5 +1,5 @@
 Summary:	Hardinfo - benchmark tool
-Summary(pl):	Hardinfo - 
+Summary(pl):	Hardinfo
 Name:		hardinfo
 Version:	0.4.2.1
 Release:	0.1
@@ -19,7 +19,7 @@ This tool can gather information about your system's hardware and operating
 system, perform benchmarks and generate printable reports either in HTML or 
 in plain text formats. 
 
-%description -l pl
+#%description -l pl
 
 %prep
 %setup -q
@@ -37,11 +37,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/hardinfo
 %dir %{_libdir}/hardinfo
 %{_libdir}/hardinfo/*
 %{_datadir}/*
-#%{_examplesdir}/%{name}-%{version}
