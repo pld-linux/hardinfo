@@ -16,6 +16,7 @@ URL:		http://hardinfo.berlios.de/web/HomePage
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libsoup-devel >= 2.2.7
 BuildRequires:	pciutils
+BuildRequires:	pkgconfig
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,5 +53,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hardinfo
 %dir %{_prefix}/lib/hardinfo
 %{_prefix}/lib/hardinfo/*
-# XXX: probably too much dirs
-%{_datadir}/*
+%{_datadir}/hardinfo
+%{_desktopdir}/hardinfo.desktop
