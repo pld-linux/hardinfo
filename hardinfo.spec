@@ -6,12 +6,13 @@
 Summary:	Hardinfo - benchmark tool
 Summary(pl.UTF-8):	Hardinfo - narzędzie informujące o sprzęcie i jego wydajności
 Name:		hardinfo
-Version:	0.4.2.1
-Release:	0.1
+Version:	0.4.2.3
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
-# Source0-md5:	6eaa923cc2051d6ab1bb7a7350c27699
+# Source0-md5:	c2fa9098193ed730de581d43b30d70d4
+Patch0:		%{name}-libgthread.patch
 URL:		http://hardinfo.berlios.de/web/HomePage
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libsoup-devel >= 2.2.7
@@ -34,6 +35,7 @@ druku raporty w formacie HTML lub czystym tekście.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
