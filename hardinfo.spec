@@ -1,13 +1,9 @@
-# TODO
-# - fix amd64 build (*MUST USE* %{_libdir} for arch dependant files)
-#   to do that  fix Makefile so that it will either install to /usr/lib if 32bit arch
-#   or to /usr/lib64 if 64bit arch - we could then safely use %{_libdir} macro
 
 Summary:	Hardinfo - benchmark tool
 Summary(pl.UTF-8):	Hardinfo - narzędzie informujące o sprzęcie i jego wydajności
 Name:		hardinfo
 Version:	0.4.2.3
-Release:	1.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
