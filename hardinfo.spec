@@ -7,7 +7,7 @@ Summary:	Hardinfo - benchmark tool
 Summary(pl.UTF-8):	Hardinfo - narzędzie informujące o sprzęcie i jego wydajności
 Name:		hardinfo
 Version:	0.4.2.3
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/hardinfo
-%dir %{_prefix}/lib/hardinfo
-%{_prefix}/lib/hardinfo/*
+%dir %{_libdir}/hardinfo
+%{_libdir}/hardinfo/*
 %{_datadir}/hardinfo
 %{_desktopdir}/hardinfo.desktop
