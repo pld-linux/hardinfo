@@ -1,0 +1,13 @@
+--- hardinfo-0.5.1/devices.c~	2009-04-06 16:43:15.000000000 +0300
++++ hardinfo-0.5.1/devices.c	2013-01-23 23:12:38.859124115 +0200
+@@ -423,7 +423,9 @@
+ 
+ void hi_module_init(void)
+ {
+-    if (!g_file_test("/usr/share/misc/pci.ids", G_FILE_TEST_EXISTS)) {
++    // probably they don't have SOAP entry for gz compressed action
++    // but URL exists for that: http://pci-ids.ucw.cz/v2.2/pci.ids.gz
++    if (!g_file_test("/lib/hwdata/pci.ids", G_FILE_TEST_EXISTS)) {
+         static SyncEntry se = {
+              .fancy_name = "Update PCI ID listing",
+              .name = "GetPCIIds",
