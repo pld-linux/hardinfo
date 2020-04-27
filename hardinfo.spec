@@ -3,19 +3,21 @@ Summary:	Hardinfo - benchmark tool
 Summary(pl.UTF-8):	Hardinfo - narzędzie informujące o sprzęcie i jego wydajności
 Name:		hardinfo
 Version:	0.5.1.%{snap}
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
+#Source0Download: https://github.com/lpereira/hardinfo/releases
 Source0:	https://github.com/lpereira/hardinfo/archive/master/%{name}-%{version}.tar.gz
 # Source0-md5:	9d7d9e00cb49579c4264b311a8232241
-URL:		http://hardinfo.berlios.de/web/HomePage
 Patch0:		hwdata.patch
 Patch1:		format-security.patch
-BuildRequires:	gtk+2-devel >= 2:2.6.0
-BuildRequires:	libsoup-devel >= 2.2.104-2
-BuildRequires:	pciutils
+URL:		http://hardinfo.berlios.de/web/HomePage
+BuildRequires:	cmake >= 2.6
+BuildRequires:	gtk+2-devel >= 2:2.10
+BuildRequires:	libsoup-devel >= 2.24
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	zlib-devel
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,7 +41,8 @@ druku raporty w formacie HTML lub czystym tekście.
 %build
 mkdir -p build
 cd build
-%cmake ../
+%cmake ..
+
 %{__make}
 
 %install
@@ -48,11 +51,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc AUTHORS.md README.md TODO
 %attr(755,root,root) %{_bindir}/hardinfo
 %dir %{_libdir}/hardinfo
 %dir %{_libdir}/hardinfo/modules
@@ -62,4 +68,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/hardinfo/modules/network.so
 %{_datadir}/hardinfo
 %{_desktopdir}/hardinfo.desktop
+%{_iconsdir}/hicolor/48x48/apps/hardinfo.png
 %{_mandir}/man1/hardinfo.1*
