@@ -1,14 +1,16 @@
+%define		snap	20200427
 Summary:	Hardinfo - benchmark tool
 Summary(pl.UTF-8):	Hardinfo - narzędzie informujące o sprzęcie i jego wydajności
 Name:		hardinfo
-Version:	0.5.1
-Release:	3
+Version:	0.5.1.%{snap}
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
-# Source0-md5:	6fb38992e140f2fab16518ae1f38e188
+Source0:	https://github.com/lpereira/hardinfo/archive/master/%{name}-%{version}.tar.gz
+# Source0-md5:	9d7d9e00cb49579c4264b311a8232241
 URL:		http://hardinfo.berlios.de/web/HomePage
 Patch0:		hwdata.patch
+Patch1:		format-security.patch
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libsoup-devel >= 2.2.104-2
 BuildRequires:	pciutils
@@ -30,22 +32,20 @@ operacyjnym, wykonywać testy wydajnościowe i generować nadające się do
 druku raporty w formacie HTML lub czystym tekście.
 
 %prep
-%setup -q
+%setup -q -n %{name}-master
 %patch0 -p1
-
-# XXX: code requires -O0 here
-%{__sed} -i -re '/(md5|sha1)\.c/ s/-c/-O0 -c/' Makefile.in
+%patch1 -p1
 
 %build
-%configure
-%{__make} \
-	CCFLAGS="%{rpmcflags} -fPIC" \
-	CC="%{__cc} %{rpmldflags}" \
-	CCSLOW="%{__cc} %{rpmldflags}"
+mkdir -p build
+cd build
+%cmake ../
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
+
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -62,3 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/hardinfo/modules/network.so
 %{_datadir}/hardinfo
 %{_desktopdir}/hardinfo.desktop
+%{_mandir}/man1/hardinfo.1*

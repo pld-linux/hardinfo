@@ -1,6 +1,16 @@
---- hardinfo-0.5.1/devices.c~	2009-04-06 16:43:15.000000000 +0300
-+++ hardinfo-0.5.1/devices.c	2013-01-23 23:12:38.859124115 +0200
-@@ -423,7 +423,9 @@
+--- hardinfo/hardinfo/pci_util.c~	2020-04-27 08:59:19.000000000 +0200
++++ hardinfo/hardinfo/pci_util.c	2020-04-27 09:06:32.013271410 +0200
+@@ -46,6 +46,7 @@
+         }
+     }
+     char *file_search_order[] = {
++        g_strdup("/lib/hwdata/pci.ids"),
+         g_strdup("/usr/share/hwdata/pci.ids"),
+         g_strdup("/usr/share/misc/pci.ids"),
+         g_build_filename(g_get_user_config_dir(), "hardinfo", "pci.ids", NULL),
+--- hardinfo/modules/devices.c~	2020-04-27 08:59:19.000000000 +0200
++++ hardinfo/modules/devices.c	2020-04-27 09:08:10.833268282 +0200
+@@ -830,7 +830,9 @@
  
  void hi_module_init(void)
  {
@@ -9,5 +19,5 @@
 +    // but URL exists for that: http://pci-ids.ucw.cz/v2.2/pci.ids.gz
 +    if (!g_file_test("/lib/hwdata/pci.ids", G_FILE_TEST_EXISTS)) {
          static SyncEntry se = {
-              .fancy_name = "Update PCI ID listing",
+              .fancy_name = N_("Update PCI ID listing"),
               .name = "GetPCIIds",
