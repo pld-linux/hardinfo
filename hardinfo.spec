@@ -35,8 +35,8 @@ druku raporty w formacie HTML lub czystym tekście.
 
 %prep
 %setup -q -n %{name}-master
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 mkdir -p build
